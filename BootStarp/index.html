@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-table.css">
+    <script type="text/javascript" src="js/bootstrap-table.js"></script>
+</head>
+
+<body>
+    <div class="mycontainer">
+        <table id="example" data-toggle="table" class="table table-bordered none-padding" data-show-columns="true" data-sort-name="viewId" data-sort-order="asc" data-show-export="true" data-toolbar="#selectModule">
+            <thead>
+                <tr>
+                    <th data-field="viewId" data-sortable="true">需求ID</th>
+                    <th data-field="summary">主题</th>
+                    <th data-field="viewIssueType" data-sortable="true">需求类型</th>
+                    <th data-field="viewState" data-sortable="true">状态</th>
+                    <th data-field="developer">开发人员</th>
+                    <th data-field="tester">测试人员</th>
+                    <th data-field="developUseTime" data-sortable="true">开发耗时(h)</th>
+                    <th data-field="testUseTime" data-sortable="true">测试耗时(h)</th>
+                    <th data-field="smokeState">冒烟情况</th>
+                    <th data-field="submitTestTimes" data-sortable="true">提测轮次(次)</th>
+                    <th data-field="totalBug" data-sortable="true">bug数(个)</th>
+                    <th data-field="datee">上线日期</th>
+                    <th data-field="remark">其他说明</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+<script>
+$(document).ready(function(e) {
+    reloadData();
+});
+
+function reloadData() {
+    // 重新展示table时，清空除标题外的其他数据
+    $("table").find("tr:gt(0)").remove();
+
+    data = [{
+        "remark": "",
+        "submitTestTimes": "1",
+        "datee": "2017-08-30",
+        "tester": "aaa",
+        "viewId": "",
+        "developUseTime": "0.8",
+        "summary": "测试数据1",
+        "testUseTime": "0.8",
+        "ownedGroup": "aaa",
+        "smokeState": "过",
+        "totalBug": 0,
+        "viewIssueType": "测试数据",
+        "viewState": "测试数据1",
+        "id": 1331,
+        "developer": "1"
+    }, {
+        "remark": "",
+        "submitTestTimes": "9",
+        "datee": "2017-08-31",
+        "tester": "测试人员2",
+        "viewId": "20868",
+        "developUseTime": "8.0",
+        "summary": "测试数据2",
+        "testUseTime": "4.0",
+        "ownedGroup": "aaa",
+        "smokeState": "aaa",
+        "totalBug": 0,
+        "viewIssueType": "aaa",
+        "viewState": "pass",
+        "id": 1332,
+        "developer": "测试数据2"
+    }];
+    $('#example').bootstrapTable('load', data);
+    //查出数据之后，延迟一下在变查询按钮，防止多次点击
+    setTimeout(function() {
+        alert('延迟2s弹出');
+    }, 2000);
+};
+</script>
+</body>
+</html>

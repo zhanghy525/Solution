@@ -1,0 +1,15 @@
+tomcat
+
+C:\Server\MyServer\apache-tomcat-8.0.3\bin
+shutdown.bat
+startup.bat
+
+java
+
+set classpath=.;
+H:\easyTour\chen\JdbcDaysOfficial\attachment\mysql.jar;
+H:\easyTour\chen\Dom4jDayOffcial\dom4j.jar
+start cmd /k
+
+javac .d xx.java
+java xx
