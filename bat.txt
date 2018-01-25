@@ -6,8 +6,9 @@ startup.bat
 
 java
 
-set classpath=.;
+set classpath=.;H:\MyJar\dom4j.jar
 H:\easyTour\chen\JdbcDaysOfficial\attachment\mysql.jar;
+H:\MyJar\hibernate-distribution-3.5.2-Final\lib\required\*;
 H:\easyTour\chen\Dom4jDayOffcial\dom4j.jar
 start cmd /k
 

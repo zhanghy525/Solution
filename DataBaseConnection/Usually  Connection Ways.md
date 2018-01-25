@@ -35,7 +35,7 @@ SqlSession session = SqlSessionFactoryBuilder().build(reader);
 - 获得链接,开启事务,进行简单的查询
 	1. `session.get()`
 	2. `session.update()`
-	
+
 	3. `session.save()`
 - 书写执行语句
 - 复杂查询:选取执行器
@@ -45,7 +45,7 @@ SqlSession session = SqlSessionFactoryBuilder().build(reader);
 - 提交/回滚事务
 - 关闭链接
 
-####通过Mybut
+####通过Mybaties
 - 获得链接
 `session = SF.getSession();`
 - 书写Mapper.xml
