@@ -1,9 +1,12 @@
 ###mapper标签属性说明
-- mapper  namespace:和package的功能用法相同,可以包名加类名区分?
+- mapper  namespace:和package的功能用法相同,可以包名加类名区分,**以IDao作为名字实现自动化**
   - id :执行器的key值
   - parameterType:参数类型
   - resultType:结果类型
   - resultMap:结果映射
+
+**通过对应的id,寻找namespace的包的同名方法**
+
 ```java
 session = SqlSessionFactoryBuilder().build(Resources.getResourceAsReader()).openSession();
 session.insert("namespace.addstu",stu);
@@ -44,7 +47,7 @@ mapper.xml内置数据了数据类型:string
 </insert>
 ```
 先产生id,然后放入数据库,不然id为空无法放入
-|       |     int |   String   |
+|    dbName   |     int |   String   |
 | :-------- | :--------:| :------: |
 | mysql    |   select @@last_insert_id as id |  select replace(uuid(),'-','') as id  |
 | oracle    |  select etoak_seq.nextval from dual  |  select sys_guid() as id from dual  |
