@@ -3,6 +3,6 @@
 <!DOCTYPE student SYSTEM "DTD4.dtd">
 
 <student>
-	<name id="et001">jack</name>
+	<name id="001">jack</name>
 	<age>22</age>
 </student>
