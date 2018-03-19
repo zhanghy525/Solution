@@ -25,7 +25,7 @@
 ]>
 
 <学生信息>
-	<student sid="et001" home="济南" salary="8k"
+	<student sid="001" home="济南" salary="8k"
 		job="软件工程师">
 		<name>elena</name>
 		<age>22</age>
