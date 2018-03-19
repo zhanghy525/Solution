@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	xml的头信息之前不能书写任何注释等
+	内部DTD:
+		将dtd直接写在xml文档当中，用来约束标签的使用次数
+		以及标签的种类
+	格式:
+		<!DOCTYPE 根元素[
+			<!ELEMENT 根元素 (一级子元素*)>
+			<!ELEMENT 一级子元素 (二级子元素,二级子元素)>
+		]>
+
+		*:表示此元素可以出现任意多次，也可以不出现
+		,:表示各种元素根据逗号的排列依次出现
+		如果元素没有任何标识符，则表示仅仅出现一次，不能不出现
+		(元素名1|元素名2):枚举类型，表示两种元素任选其一
+		+:至少一个上不封顶
+		?:0个或者1个
+		~~~~~~~~~~~~~~~~~~~~~~~~
+		#PCDATA:表示此元素内可以是任意字符串，
+		不再有子元素
+		ANY:表示元素内可以是任意字符串，也可以是任意子元素
+		(#PCDATA|元素名)*:表示元素内部可以是任意字符串
+		也可以是特定元素，也可以两者同时存在
+		EMPTY:表示元素内部为空
+-->
+<!DOCTYPE 学生信息[
+	<!ELEMENT 学生信息 (student*)>
+	<!ELEMENT student (name,age,(location|home),hobby*,teacher+,gf?,job*,criminal)>
+	<!ELEMENT name (#PCDATA)>
+	<!ELEMENT age (#PCDATA)>
+	<!ELEMENT location (#PCDATA)>
+	<!ELEMENT home (#PCDATA)>
+	<!ELEMENT hobby ANY>
+	<!ELEMENT teacher (#PCDATA)>
+	<!ELEMENT gf (#PCDATA)>
+	<!ELEMENT job (#PCDATA|secondJob)*>
+	<!ELEMENT secondJob (#PCDATA)>
+	<!ELEMENT criminal EMPTY>
+]>
+
+<学生信息>
+	<student>
+		<name>万春阳</name>
+		<age>26</age>
+		<location>青岛</location>
+		<hobby>篮球</hobby>
+		<hobby>游戏</hobby>
+		<hobby>听歌</hobby>
+		<teacher>吴老师</teacher>
+		<job>
+			软件工程师
+			<secondJob>特工</secondJob>
+		</job>
+		<criminal></criminal>
+	</student>
+</学生信息>
+
+
+
+
+

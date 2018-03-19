@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+	使用内部DTD来约束元素的属性
+
+	<!ATTLIST 依附元素 属性名 属性类型 默认值类型>
+
+	属性类型:
+		ID:属性值全文唯一 不能以数字开头
+		CDATA:属性值可以是任意字符串
+		(数据1|数据2|数据3):任选其一
+
+	默认值类型:
+		#REQUIRED:必须书写默认值，不能不写
+		#IMPLIED:默认值爱写不写
+-->
+<!DOCTYPE 学生信息 [
+	<!ELEMENT 学生信息 (student*)>
+	<!ELEMENT student (name,age)>
+		<!ATTLIST student sid ID #REQUIRED>
+		<!ATTLIST student home CDATA #IMPLIED>
+		<!ATTLIST student salary (8k|10k|12k) "8k">
+		<!ATTLIST student job CDATA #FIXED "软件工程师">
+	<!ELEMENT name (#PCDATA)>
+	<!ELEMENT age (#PCDATA)>
+]>
+
+<学生信息>
+	<student sid="et001" home="济南" salary="8k"
+		job="软件工程师">
+		<name>elena</name>
+		<age>22</age>
+	</student>
+</学生信息>
